@@ -14,17 +14,21 @@ import java.io.IOException;
 
 @Controller
 public class GreetingController {
-    @MessageMapping("/hello")
+
+
+   @MessageMapping("/hello")
     @SendTo("/topic/greetings")
     public Greeting greeting(HelloMessage message) throws Exception {
         Thread.sleep(1000); // simulated delay
-        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+        return new Greeting("문제:   " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }
 
-    @OnMessage
-    public void onMessage(HelloMessage message) throws Exception {
-        System.out.println(message);
-
+    @MessageMapping("/answer")
+    public Greeting sendAnswer(HelloMessage message) throws Exception {
+        Thread.sleep(1000); // simulated delay
+        System.out.println("답  " + message.getName());
+        return new Greeting("답, " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }
+
 
 }
