@@ -6,10 +6,7 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
-import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
 import javax.websocket.Session;
-import java.io.IOException;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
